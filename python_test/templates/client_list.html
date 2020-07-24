@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Search clients</h1>
+    <form method="GET" action=".">
+        {{ search_form.as_p }}
+        <input type="submit" value="Search"/>
+    </form>
+    <h1>Clients</h1>
+    <ol>
+        {% for client in clients %}
+        <li><a href="{% url 'update_client' client.id %}">{{ client.name }}</a></li>
+        {% empty %}
+        <li>Add clients <a href="{% url 'create_client' %}">here</a></li>
+        {% endfor %}
+    </ol>
+</div>
